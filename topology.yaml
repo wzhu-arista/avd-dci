@@ -11,8 +11,8 @@ topology:
       #   - sleep 10
       #   - FastCli -p 15 -c 'copy file:/persist/secure/capi.pem certificate:'
       #   - FastCli -p 15 -c 'copy file:/persist/secure/capikey.pem sslkey:'
-    linux:
-      image: alpine-host
+    # linux:
+    #   image: alpine-host
   nodes:
     dc1-spine1:
       kind: ceos
@@ -30,10 +30,8 @@ topology:
       kind: ceos
       mgmt-ipv4: 192.168.124.105
     dc1-leaf1-server1:
-      kind: linux
+      kind: ceos
       mgmt-ipv4: 192.168.124.106
-      env:
-        TMODE: lacp
     dc1-leaf2a:
       kind: ceos
       mgmt-ipv4: 192.168.124.107
@@ -44,10 +42,8 @@ topology:
       kind: ceos
       mgmt-ipv4: 192.168.124.109
     dc1-leaf2-server1:
-      kind: linux
+      kind: ceos
       mgmt-ipv4: 192.168.124.110 
-      env:
-        TMODE: lacp   
     dc2-spine1:
       kind: ceos
       mgmt-ipv4: 192.168.124.111
@@ -64,10 +60,8 @@ topology:
       kind: ceos
       mgmt-ipv4: 192.168.124.115
     dc2-leaf1-server1:
-      kind: linux
+      kind: ceos
       mgmt-ipv4: 192.168.124.116
-      env:
-        TMODE: lacp
     dc2-leaf2a:
       kind: ceos
       mgmt-ipv4: 192.168.124.117
@@ -78,10 +72,8 @@ topology:
       kind: ceos
       mgmt-ipv4: 192.168.124.119
     dc2-leaf2-server1:
-      kind: linux
+      kind: ceos
       mgmt-ipv4: 192.168.124.120
-      env:
-        TMODE: lacp
 
 
   links:
@@ -125,6 +117,8 @@ topology:
     - endpoints: ["dc2-leaf2b:eth5", "dc2-leaf2-server1:eth2"]    
     - endpoints: ["dc2-leaf2a:eth8", "dc2-leaf2c:eth1"]
     - endpoints: ["dc2-leaf2b:eth8", "dc2-leaf2c:eth2"] 
+    - endpoints: ["dc1-leaf2a:eth6", "dc2-leaf2a:eth6"]  
+    - endpoints: ["dc1-leaf2b:eth6", "dc2-leaf2b:eth6"]  
 
 mgmt:
   network: ceos_clab    

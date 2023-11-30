@@ -79,7 +79,7 @@ l3_edge:
   p2p_links_profiles:
     - name: DCI_profile
       ip_pool: DCI_IP_pool
-      as: [65102, 65202]
+      # as: [65102, 65202]
       include_in_underlay_protocol: true
   # Define each P2P L3 link and link the nodes, the interfaces and the profile used.
   p2p_links:
@@ -87,9 +87,11 @@ l3_edge:
       nodes: [dc1-leaf2a, dc2-leaf2a]
       interfaces: [Ethernet6, Ethernet6]
       profile: DCI_profile
+      as: [65103, 65203]
     - id: 2
       nodes: [dc1-leaf2b, dc2-leaf2b]
       interfaces: [Ethernet6, Ethernet6]
       profile: DCI_profile
+      as: [65104, 65204]
 
 mgmt_interface: Management0

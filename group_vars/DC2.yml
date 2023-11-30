@@ -132,12 +132,11 @@ l2leaf:
           uplink_switch_interfaces: [Ethernet8, Ethernet8]
           short_esi: 0002:0101:0101
 
-    - group: DC2_L2_LEAF2
-      uplink_switches: ['dc2-leaf2a', 'dc2-leaf2b']
-      nodes:
-        - name: dc2-leaf2c
-          id: 12
-          mgmt_ip: 192.168.124.119/24
-          mgmt_ip: 192.168.124.109/24
-          uplink_switch_interfaces: [Ethernet8, Ethernet8]
-          short_esi: 0002:0202:0202
+    # - group: DC2_L2_LEAF2
+    #   uplink_switches: ['dc2-leaf2a', 'dc2-leaf2b']
+    #   nodes:
+    #     - name: dc2-leaf2c
+    #       id: 12
+    #       mgmt_ip: 192.168.124.119/24
+    #       uplink_switch_interfaces: [Ethernet8, Ethernet8]
+    #       short_esi: 0002:0202:0202
