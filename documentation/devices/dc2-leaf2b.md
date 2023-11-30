@@ -41,6 +41,7 @@
 - [Virtual Source NAT](#virtual-source-nat)
   - [Virtual Source NAT Summary](#virtual-source-nat-summary)
   - [Virtual Source NAT Configuration](#virtual-source-nat-configuration)
+- [EOS CLI](#eos-cli)
 
 ## Management
 
@@ -762,4 +763,24 @@ vrf instance VRF11
 !
 ip address virtual source-nat vrf VRF10 address 10.255.10.16
 ip address virtual source-nat vrf VRF11 address 10.255.11.16
+```
+
+## EOS CLI
+
+```eos
+!
+router general
+  control-functions
+     code
+        function addComm() {
+           if evpn.route_type is EVPN_IMET or evpn.route_type is EVPN_MAC_IP {
+              community add {2:2};
+           }          
+           return true;
+        }
+        function matchComm() {
+           return community has_none {2:2};
+        }
+     EOF
+
 ```
