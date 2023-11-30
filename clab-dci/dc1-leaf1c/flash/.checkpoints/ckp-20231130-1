@@ -1,4 +1,4 @@
-! Command: show running-config
+! The checkpoint file saved at Thu Nov 30 14:32:59 2023 by admin
 ! device: dc1-leaf1c (cEOSLab, EOS-4.31.0F-33804048.4310F (engineering build))
 !
 no aaa root
@@ -47,7 +47,7 @@ management api http-commands
       no shutdown
 !
 interface Port-Channel1
-   description DC1-LEAF1A_Po8
+   description DC1_L3_LEAF1_Po8
    switchport trunk allowed vlan 11-12,21-22,3401-3402
    switchport mode trunk
 !

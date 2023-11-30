@@ -62,7 +62,7 @@ ethernet_interfaces:
     mode: active
 port_channel_interfaces:
 - name: Port-Channel1
-  description: DC2_L3_LEAF1_Po8
+  description: DC2-LEAF1A_Po8
   type: switched
   shutdown: false
   mode: trunk

@@ -1,5 +1,5 @@
-! Command: show running-config
-! device: dc1-leaf1c (cEOSLab, EOS-4.31.0F-33804048.4310F (engineering build))
+! The checkpoint file saved at Thu Nov 30 14:32:54 2023 by admin
+! device: dc2-leaf1c (cEOSLab, EOS-4.31.0F-33804048.4310F (engineering build))
 !
 no aaa root
 !
@@ -12,7 +12,7 @@ transceiver qsfp default-mode 4x10G
 !
 service routing protocols model multi-agent
 !
-hostname dc1-leaf1c
+hostname dc2-leaf1c
 !
 spanning-tree mode mstp
 !
@@ -47,22 +47,22 @@ management api http-commands
       no shutdown
 !
 interface Port-Channel1
-   description DC1-LEAF1A_Po8
+   description DC2_L3_LEAF1_Po8
    switchport trunk allowed vlan 11-12,21-22,3401-3402
    switchport mode trunk
 !
 interface Ethernet1
-   description DC1-LEAF1A_Ethernet8
+   description DC2-LEAF1A_Ethernet8
    channel-group 1 mode active
 !
 interface Ethernet2
-   description DC1-LEAF1B_Ethernet8
+   description DC2-LEAF1B_Ethernet8
    channel-group 1 mode active
 !
 interface Management0
    description oob_management
    vrf MGMT
-   ip address 192.168.124.105/24
+   ip address 192.168.124.115/24
 !
 no ip routing
 no ip routing vrf MGMT

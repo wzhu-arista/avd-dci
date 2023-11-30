@@ -1,4 +1,4 @@
-! Command: show running-config
+! The checkpoint file saved at Thu Nov 30 14:32:50 2023 by admin
 ! device: dc2-leaf2a (cEOSLab, EOS-4.31.0F-33804048.4310F (engineering build))
 !
 no aaa root
@@ -265,7 +265,7 @@ router bgp 65202
    neighbor MLAG-IPv4-UNDERLAY-PEER send-community
    neighbor MLAG-IPv4-UNDERLAY-PEER maximum-routes 12000
    neighbor 10.255.0.5 peer group EVPN-OVERLAY-CORE
-   neighbor 10.255.0.5 remote-as 65103
+   neighbor 10.255.0.5 remote-as 65102
    neighbor 10.255.0.5 description dc1-leaf2a
    neighbor 10.255.128.11 peer group EVPN-OVERLAY-PEERS
    neighbor 10.255.128.11 remote-as 65200
