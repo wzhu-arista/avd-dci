@@ -56,23 +56,23 @@
 
 | Management Interface | description | Type | VRF | IP Address | Gateway |
 | -------------------- | ----------- | ---- | --- | ---------- | ------- |
-| Management1 | oob_management | oob | MGMT | 172.16.1.111/24 | 172.16.1.1 |
+| Management0 | oob_management | oob | MGMT | 192.168.124.113/24 | 192.168.124.1 |
 
 ##### IPv6
 
 | Management Interface | description | Type | VRF | IPv6 Address | IPv6 Gateway |
 | -------------------- | ----------- | ---- | --- | ------------ | ------------ |
-| Management1 | oob_management | oob | MGMT | - | - |
+| Management0 | oob_management | oob | MGMT | - | - |
 
 #### Management Interfaces Device Configuration
 
 ```eos
 !
-interface Management1
+interface Management0
    description oob_management
    no shutdown
    vrf MGMT
-   ip address 172.16.1.111/24
+   ip address 192.168.124.113/24
 ```
 
 ### Management API HTTP
@@ -116,7 +116,7 @@ management api http-commands
 
 ```eos
 !
-username admin privilege 15 role network-admin nopassword
+username admin privilege 15 role network-admin secret sha512 <removed>
 username ansible privilege 15 role network-admin secret sha512 <removed>
 ```
 
@@ -251,7 +251,7 @@ vlan 4094
 | --------- | ----------- | ---- | ----- | ----------- | ----------- | ------------- |
 | Ethernet3 | MLAG_PEER_dc2-leaf1b_Ethernet3 | *trunk | *- | *- | *['LEAF_PEER_L3', 'MLAG'] | 3 |
 | Ethernet4 | MLAG_PEER_dc2-leaf1b_Ethernet4 | *trunk | *- | *- | *['LEAF_PEER_L3', 'MLAG'] | 3 |
-| Ethernet5 | dc2-leaf1-server1_PCI1 | *trunk | *11-12,21-22 | *4092 | *- | 5 |
+| Ethernet5 | dc2-leaf1-server1_eth1 | *trunk | *11-12,21-22 | *4092 | *- | 5 |
 | Ethernet8 | DC2-LEAF1C_Ethernet1 | *trunk | *11-12,21-22,3401-3402 | *- | *- | 8 |
 
 *Inherited from Port-Channel Interface
@@ -292,7 +292,7 @@ interface Ethernet4
    channel-group 3 mode active
 !
 interface Ethernet5
-   description dc2-leaf1-server1_PCI1
+   description dc2-leaf1-server1_eth1
    no shutdown
    channel-group 5 mode active
 !
@@ -588,13 +588,13 @@ ip routing vrf VRF11
 
 | VRF | Destination Prefix | Next Hop IP             | Exit interface      | Administrative Distance       | Tag               | Route Name                    | Metric         |
 | --- | ------------------ | ----------------------- | ------------------- | ----------------------------- | ----------------- | ----------------------------- | -------------- |
-| MGMT | 0.0.0.0/0 | 172.16.1.1 | - | 1 | - | - | - |
+| MGMT | 0.0.0.0/0 | 192.168.124.1 | - | 1 | - | - | - |
 
 #### Static Routes Device Configuration
 
 ```eos
 !
-ip route vrf MGMT 0.0.0.0/0 172.16.1.1
+ip route vrf MGMT 0.0.0.0/0 192.168.124.1
 ```
 
 ### Router BGP

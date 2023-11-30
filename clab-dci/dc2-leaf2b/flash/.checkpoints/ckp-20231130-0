@@ -1,0 +1,54 @@
+! The checkpoint file saved at Thu Nov 30 01:02:20 2023 by admin
+! device: dc2-leaf2b (cEOSLab, EOS-4.31.0F-33804048.4310F (engineering build))
+!
+no aaa root
+!
+username admin privilege 15 role network-admin secret sha512 $6$.UnZN5Jl6jibYXuc$iqrMgxPGxpuJhKnHcW6TbnQ6TRd.e/lu1QHXDjmQ7NUG8TkJ7i2l4YPlzSDgCRNK9BXdMNhtqLwq0NQ6Axctf.
+!
+transceiver qsfp default-mode 4x10G
+!
+service routing protocols model multi-agent
+!
+hostname dc2-leaf2b
+!
+spanning-tree mode mstp
+!
+system l1
+   unsupported speed action error
+   unsupported error-correction action error
+!
+vrf instance MGMT
+!
+management api http-commands
+   no shutdown
+   !
+   vrf MGMT
+      no shutdown
+!
+interface Ethernet1
+!
+interface Ethernet2
+!
+interface Ethernet3
+!
+interface Ethernet4
+!
+interface Ethernet5
+!
+interface Ethernet8
+!
+interface Management0
+   description oob_management
+   vrf MGMT
+   ip address 192.168.124.118/24
+!
+no ip routing
+no ip routing vrf MGMT
+!
+ip route vrf MGMT 0.0.0.0/0 192.168.124.1
+!
+router multicast
+   ipv4
+      software-forwarding sfe
+!
+end

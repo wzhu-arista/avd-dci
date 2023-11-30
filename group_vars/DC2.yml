@@ -2,7 +2,7 @@
 ### group_vars/DC2.yml
 
 # Default gateway used for the management interface
-mgmt_gateway: 172.16.1.1
+mgmt_gateway: 192.168.124.1
 
 # Spine switch group
 spine:
@@ -23,11 +23,11 @@ spine:
       # Device ID definition. An integer number used for internal calculations (ie. IPv4 address of the loopback_ipv4_pool among others)
       id: 11
       # Management IP to be assigned to the management interface
-      mgmt_ip: 172.16.1.21/24
+      mgmt_ip: 192.168.124.111/24
 
     - name: dc2-spine2
       id: 12
-      mgmt_ip: 172.16.1.22/24
+      mgmt_ip: 192.168.124.112/24
 
 # L3 Leaf switch group
 l3leaf:
@@ -66,7 +66,7 @@ l3leaf:
         # Definition of hostnames under the node_group
         - name: dc2-leaf1a
           id: 11
-          mgmt_ip: 172.16.1.111/24
+          mgmt_ip: 192.168.124.113/24
           # Definition of the port to be used in the uplink device facing this device.
           # Note that the number of elements in this list must match the length of 'uplink_switches' as well as 'uplink_interfaces'
           uplink_switch_interfaces:
@@ -74,7 +74,7 @@ l3leaf:
             - Ethernet1
         - name: dc2-leaf1b
           id: 12
-          mgmt_ip: 172.16.1.112/24
+          mgmt_ip: 192.168.124.114/24
           uplink_switch_interfaces:
             - Ethernet2
             - Ethernet2
@@ -91,7 +91,7 @@ l3leaf:
       nodes:
         - name: dc2-leaf2a
           id: 13
-          mgmt_ip: 172.16.1.113/24
+          mgmt_ip: 192.168.124.117/24
           uplink_switch_interfaces:
             - Ethernet3
             - Ethernet3
@@ -101,7 +101,7 @@ l3leaf:
               - hostname: dc1-leaf2a
         - name: dc2-leaf2b
           id: 14
-          mgmt_ip: 172.16.1.114/24
+          mgmt_ip: 192.168.124.118/24
           uplink_switch_interfaces:
             - Ethernet4
             - Ethernet4
@@ -122,7 +122,7 @@ l2leaf:
       nodes:
         - name: dc2-leaf1c
           id: 11
-          mgmt_ip: 172.16.1.161/24
+          mgmt_ip: 192.168.124.115/24
           uplink_switch_interfaces:
             - Ethernet8
             - Ethernet8
@@ -132,7 +132,7 @@ l2leaf:
       nodes:
         - name: dc2-leaf2c
           id: 12
-          mgmt_ip: 172.16.1.162/24
+          mgmt_ip: 192.168.124.119/24
           uplink_switch_interfaces:
             - Ethernet8
             - Ethernet8

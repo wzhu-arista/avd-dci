@@ -16,13 +16,7 @@ interface Management0
 {{ if .MgmtIPv4Address }}   ip address {{ .MgmtIPv4Address }}/{{ .MgmtIPv4PrefixLength }}{{end}}
 {{ if .MgmtIPv6Address }}   ipv6 address {{ .MgmtIPv6Address }}/{{ .MgmtIPv6PrefixLength }}{{end}}
 !
-management security
-   ssl profile eAPI
-      certificate capi.pem key capikey.pem
-      tls version 1.2
-!
 management api http-commands
-   protocol https ssl profile eAPI
    no shutdown
    !
    vrf MGMT
