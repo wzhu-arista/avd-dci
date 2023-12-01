@@ -103,7 +103,7 @@ l3leaf:
           evpn_gateway:
             # Define remote peers of the EVPN VXLAN Gateway. If the hostname can be found in the inventory, ip_address and BGP ASN will be automatically populated. Manual override takes precedence. If the peer's hostname can not be found in the inventory, ip_address and bgp_as must be defined.
             remote_peers:
-              - hostname: dc1-leaf2a
+              - hostname: dc1-leaf2a          
         - name: dc2-leaf2b
           id: 14
           bgp_as: 65204
@@ -114,8 +114,7 @@ l3leaf:
           evpn_gateway:
             # Define remote peers of the EVPN VXLAN Gateway. If the hostname can be found in the inventory, ip_address and BGP ASN will be automatically populated. Manual override takes precedence. If the peer's hostname can not be found in the inventory, ip_address and bgp_as must be defined.
             remote_peers:
-              - hostname: dc1-leaf2b
-
+              - hostname: dc1-leaf2b        
 # L2 Leaf switch group
 l2leaf:
   defaults:

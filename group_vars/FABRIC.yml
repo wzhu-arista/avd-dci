@@ -95,3 +95,10 @@ l3_edge:
       as: [65104, 65204]
 
 mgmt_interface: Management0
+
+aaa_authorization:
+  exec:
+    default: local
+
+custom_templates:
+  - dcgw.j2   

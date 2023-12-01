@@ -1,6 +1,7 @@
 hostname {{ .ShortName }}
 username admin privilege 15 secret admin
 !
+aaa authorization exec default local
 service routing protocols model multi-agent
 !
 vrf instance MGMT 
