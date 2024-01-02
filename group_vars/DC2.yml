@@ -63,6 +63,8 @@ l3leaf:
       # ASN to be used by BGP for the group. Both devices in the MLAG pair will use the same BGP ASN
       # bgp_as: 65201
       mlag: false
+      lacp_port_id_range: 
+        enabled: True
       nodes:
         # Definition of hostnames under the node_group
         - name: dc2-leaf1a
